@@ -1,5 +1,7 @@
 <div style="margin:auto; width:900px;">
 
+<h2><a href="http://localhost/php-youtube/restorant/kategori/insert.php">TAMBAH DATA</a></h2>
+
 <?php
 
 
