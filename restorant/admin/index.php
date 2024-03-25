@@ -1,3 +1,13 @@
+<?php
+
+
+ require_once "../dbcontroller.php";
+ $db = new DB;
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin page | Aplikasi Restoran SMK</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootsrap.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -25,16 +35,28 @@
         <div class="col-md-3">
             
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#">kategori</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Pelanggan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Order</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Order Detail</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">user</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=kategori&m=select">kategori</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=menu&m=select">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=pelanggan&m=select">Pelanggan</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=order&m=select">Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=orderdetail&m=select">Order Detail</a></li>
+                <li class="nav-item"><a class="nav-link" href="?f=user&m=select">user</a></li>
             </ul>
         </div>
         <div class="col-md-9">
+               <?php
+                           
+                if(isset($_GET['f']) && isset($_GET['m'])) {
+                    $f=$_GET['f'];
+                    $m=$_GET['m'];
 
+                    $file = '../'.$f.'/'.$m.'.php';
+
+                    require_once $file;
+                }
+
+                 
+                ?>
         </div>
 
     </div>

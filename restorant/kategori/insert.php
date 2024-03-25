@@ -1,29 +1,3 @@
-<form action="" method="post">
-    kategori :
-    <input type="text" name="kategori">
-    <br>
-    <input type="submit" name="simpan" value="simpan">
 
-</form>
+<h1>insert kategori</h1>
 
-<?php
-
-
-require_once "../function.php";
-
-if (isset($_POST['simpan'])) {
-    $kategori = $_POST['kategori'];
-    echo $kategori;
-
-$kategori = 'es degan';
-
-$sql = "INSERT INTO tblkategori VALUES ('','$kategori')";
-
-$result = mysqli_query($koneksi, $sql);
-
-header("location:http://localhost/php-youtube/restorant/kategori/select.php");
-
-}
-
-
-?>

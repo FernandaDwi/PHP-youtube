@@ -16,7 +16,7 @@
 
         public function koneksiDB()
         {
-            $koneksi = mysqli_connect($this->$host,$this->$user,$this->$password,$this->$database);
+            $koneksi = mysqli_connect($this->host,$this->user,$this->password,$this->database);
             return $koneksi;
         }
        public function getALL ($sql)
