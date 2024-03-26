@@ -1,4 +1,4 @@
-<?php
+<?php  
 
 
     class DB{
@@ -36,7 +36,7 @@
         return $row;
        }
 
-       public function rowCOUNT()
+       public function rowCOUNT($sql)
        {
         $result = mysqli_query($this->koneksi, $sql);
         $count = mysqli_num_rows($result);
