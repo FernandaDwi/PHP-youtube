@@ -1,12 +1,22 @@
+<?php
 
-<h3>Insert Kategori</h3>
+   if(isset($_GET['id'])) {
+       $id=$_GET['id'];
+
+       $sql = "SELECT * FROM tblkategori WHERE idkategori=$id";
+
+       $row=$db->getITEM($sql);
+   }
+
+?>
+<h3>Update Kategori</h3>
 <div class="form-group">
 
   <form action="" method="post">
     <div class="form-group w-50">
 
        <label for="">Nama kategori</label>   
-       <input type="text" name="kategori" required placeholder="isi kategori" class="form-control">
+       <input type="text" name="kategori" required value="<?php echo $row['kategori']?>" class="form-control">
 
     </div>
 
@@ -25,8 +35,9 @@
  if(isset($_POST['simpan']))  {
     $kategori = $_POST['kategori'];
      
-    $sql = "INSERT INTO tblkategori VALUES ('','$kategori')";
+    $sql = "UPDATE tblkategori SET kategori= '$kategori' WHERE idkategori=$id";
     
+
     $db->runSQL($sql);
 
 

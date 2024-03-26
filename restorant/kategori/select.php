@@ -22,6 +22,12 @@ if (isset($_GET['p'])) {
 
 ?>
 
+<div class="float-left mr-4">
+      
+<a class="btn btn-primary" href="?f=kategori&m=insert" role="button">TAMBAH DATA</a>
+
+</div>
+
 <h3>kategori</h3>
 <table class="table table-bordered w-50">
         <thead>
@@ -35,10 +41,10 @@ if (isset($_GET['p'])) {
         <tbody>
             <?php foreach($row as $r):    ?>
            <tr>
-               <td><?php echo $no++ ?></td>
+               <td> <?php echo $no++ ?></td>
                <td> <?php echo $r['kategori'] ?></td>
-               <td> <?php echo $r['idkategori'] ?></td>
-               <td> <?php echo $r['idkategori'] ?></td>
+               <td><a href="?f=kategori&m=delete&id=<?php echo $r['idkategori'] ?>">Delete</a></td>
+               <td><a href="?f=kategori&m=Update&id=<?php echo $r['idkategori'] ?>">Update</a></td>
            </tr>     
         <?php endforeach ?>
          </tbody>
