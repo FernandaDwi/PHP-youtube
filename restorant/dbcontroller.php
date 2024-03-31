@@ -19,13 +19,16 @@
             $koneksi = mysqli_connect($this->host,$this->user,$this->password,$this->database);
             return $koneksi;
         }
-       public function getALL ($sql)
+       public function getALL($sql)
        {
            $result = mysqli_query($this->koneksi, $sql);
            while ($row=mysqli_fetch_assoc($result)) {
               $data[]=$row;
            }
-           return $data;
+           if (!empty($data)) {
+            return $data;
+           }
+          
        }
 
        public function getITEM($sql)
