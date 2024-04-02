@@ -10,5 +10,5 @@ if(isset($_GET['id'])) {
 
     header("location:?f=menu&m=select");
 
-    }
+}
 ?>
