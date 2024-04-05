@@ -39,6 +39,7 @@ if (isset($_GET['p'])) {
             </tr>
         </thead>
         <tbody>
+            <?php if(!empty($row)) { ?>
             <?php foreach($row as $r):    ?>
            <tr>
                <td> <?php echo $no++ ?></td>
@@ -47,6 +48,7 @@ if (isset($_GET['p'])) {
                <td><a href="?f=kategori&m=Update&id=<?php echo $r['idkategori'] ?>">Update</a></td>
            </tr>     
         <?php endforeach ?>
+        <?php  }  ?>
          </tbody>
 
 </table>
