@@ -26,15 +26,36 @@ $row = $db->getALL($sql);
     <div class="container">
          
     <div class="row">
-           <div class="col-md-3">
+           <div class="col-md-3 mt-4">
               <h2><a href="index.php">Restoran Makmur </a></h2>
            </div>
 
            <div class="col-md-9">
+
+           <?php
+
+            if (isset($_SESSION['pelanggan']))   {
+                echo '
+
                 <div class="float-right mt-4">logout</div>
-                <div class="float-right mt-4 mr-4"> Login </a></div>
                 <div class="float-right mt-4 mr-4"> Pelanggan </a></div>
-                <div class="float-right mt-4 mr-4"> Daftar </a></div>
+                ';
+            }else {
+                echo '
+                <div class="float-right mt-4 mr-4"> Login </a></div>
+                <div class="float-right mt-4 mr-4"><a href="?f=home&m=daftar"> Daftar </a> </a></div>
+                ';
+            }
+
+
+          ?>
+
+
+
+               
+               
+                
+               
                 
 
            </div>
