@@ -3,25 +3,44 @@
 
 <?php
 
+if (isset($_GET['hapus'])) {
+    $id = $_GET['hapus'];
+    unset($_SESSION['_'.$id]);
+}
+
 
 if (!isset($_SESSION['pelanggan']))  {
     header("location:?f=home&m=login");
+} else {
+       
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        isi($id);
+        header("location:?f=home&m=beli");
+    }else {
+        keranjang();
+    }
 }
 
 
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-   
 
-    echo '<br>';
 
+
+function isi ($id) {
     if (isset($_SESSION['_'.$id]))   {
         $_SESSION['_'.$id]++;
     }else {
         $_SESSION['_'.$id]=1;
     }
 
+
+}
+
+function keranjang () {
+     global $db;
+    
     echo'
     
     <table class="table table-bordered w-50">
@@ -31,6 +50,7 @@ if (isset($_GET['id'])) {
                 <th>Harga</th> 
                 <th>Jumlah</th>   
                 <th>Total</th>
+                <th>Hapus</th>
             </tr>
        
     
@@ -51,6 +71,7 @@ if (isset($_GET['id'])) {
                 echo '<td>'.$r['harga'].'</td>';
                 echo '<td>'.$value.'</td>';
                 echo '<td>'.$r['harga'] * $value.'</td>';
+                echo '<td><a href="?f=home&m=beli&hapus='.$r['idmenu'].'">Hapus</a></td>';
                 echo '</tr>';
             }
 
@@ -60,7 +81,6 @@ if (isset($_GET['id'])) {
     }
 
     echo'</table>';
-
 
 }
 
