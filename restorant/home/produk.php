@@ -58,8 +58,8 @@ if (isset($_GET['p'])) {
             <img style="height: 150px;" src="upload/<?php echo $r['gambar'] ?>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $r['menu'] ?></h5>
-                <p class="card-text"><?php echo $r['harga'] ?></p>
-                <a class="btn btn-primary" href="?f=home&m=beli&id=<?php echo $r['idmenu']    ?>" role="button">BELI</a>
+                <p class="card-text">Rp <?php echo $r['harga'] ?></p>
+                <a class="btn btn-primary" href="?f=home&m=beli&id=<?php echo $r['idmenu']?>">BELI</a>
             </div>
             </div>
 
